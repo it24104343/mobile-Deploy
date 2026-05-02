@@ -39,6 +39,15 @@ app.use('/api/revenue', require('./routes/revenueRoutes'));
 app.use('/api/profile', require('./routes/profileRoutes'));
 app.use('/api/teacher-attendance', require('./routes/teacherAttendanceRoutes'));
 
+// Root route
+app.get('/', (req, res) => {
+  res.json({ success: true, message: 'Tuition Management System API is running' });
+});
+
+app.get('/api', (req, res) => {
+  res.json({ success: true, message: 'Welcome to the API. Please use /api/health to check status.' });
+});
+
 // Health check route
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Server is running' });
